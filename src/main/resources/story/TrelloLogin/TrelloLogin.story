@@ -5,7 +5,7 @@ Given I am on a page with the URL 'https://trello.com/home'
 When I wait until element located `By.xpath(//*[@id="BXP-APP"]/header[1]/div/div[1]/div[2]/a[1])` appears
 When I click on element located `By.xpath(//*[@id="BXP-APP"]/header[1]/div/div[1]/div[2]/a[1])`
 When I wait until element located `By.xpath(//input[@id='user'])` appears
-When I type `epamnikita@gmail.com` in field located `By.xpath(//input[@id='user'])`
+When I enter `epamnikita@gmail.com` in field located `By.xpath(//input[@id='user'])`
 When I click on element located `By.xpath(//input[@id='login'])`
 When I type `<password>` in field located `By.xpath(//input[@id='password'])`
 When I click on element located `By.xpath(//button[@id='login-submit'])`
