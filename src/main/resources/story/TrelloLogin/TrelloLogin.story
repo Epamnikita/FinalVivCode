@@ -1,40 +1,15 @@
-Description: checking login homepage for trello.com
 
+Description: Checking login homepage for trello.com
 
-!-- Positive scenarios : login and logout flow
-Scenario: login to trello home page with valid credentials 
-Given I am on a page with the URL 'https://trello.com/home'
-When I wait until element located `By.xpath(//*[@id="BXP-APP"]/header[1]/div/div[1]/div[2]/a[1])` appears
-When I click on element located `By.xpath(//*[@id="BXP-APP"]/header[1]/div/div[1]/div[2]/a[1])`
-When I wait until element located `By.xpath(//input[@id='user'])` appears
-When I enter `<userid>` in field located `By.xpath(//input[@id='user'])`
-When I click on element located `By.xpath(//input[@id='login'])`
-When I enter `<paasword>` in field located `By.xpath(//input[@id='password'])`
-When I click on element located `By.xpath(//button[@id='login-submit'])`
+Scenario: Login to trello home page with valid credentials
+When I login into trello app with `epamnikita@gmail.com` and `epamnikita@2022`
 When I wait until element located `By.xpath(//a[@aria-label='Back to home'])` appears
-When I click on element located `By.xpath(//*[@id="header"]/div[3]/div[5]/button)`
+When I click on element located `By.xpath(//button[@aria-label='Open member menu']`
 When I click on element located `By.xpath(//button[@data-testid='header-member-menu-logout'])`
 When I click on element located `By.xpath(//button[@id='logout-submit'])`
-When I wait until element located `By.xpath(//*[@id="BXP-APP"]/header[1]/div/div[1]/div[2]/a[1])` appears
-
-Examples: 
-|userid|paasword|
-|epamnikita@gmail.com|epamnikita@2020|
+When I wait until element located `By.xpath(//a[@href='/signup']/preceding-sibling::a)` appears
 
 
-
-!-- Negative scenarios : checks application shows error message for invalid password
-Scenario: login to trello home page with invalid credentials 
-Given I am on a page with the URL 'https://trello.com/home'
-When I wait until element located `By.xpath(//*[@id="BXP-APP"]/header[1]/div/div[1]/div[2]/a[1])` appears
-When I click on element located `By.xpath(//*[@id="BXP-APP"]/header[1]/div/div[1]/div[2]/a[1])`
-When I wait until element located `By.xpath(//input[@id='user'])` appears
-When I enter `<userid>` in field located `By.xpath(//input[@id='user'])`
-When I click on element located `By.xpath(//input[@id='login'])`
-When I enter `<paasword>` in field located `By.xpath(//input[@id='password'])`
-When I click on element located `By.xpath(//button[@id='login-submit'])`
+Scenario: Login to trello home page with invalid credentials
+When I login into trello app with `epamnikita@gmail.com` and `epamnikita@2022`
 And I wait until element located `By.xpath(//div[@id="login-error"])` appears
-
-Examples: 
-|userid|paasword|
-|epamnikita@gmail.com|epamnikita@2022|
